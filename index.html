@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shyam Kasliwal | Portfolio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div id="three-bg"></div>
+
+  <h1>Shyam Kasliwal</h1>
+  <p>Full Stack Developer | MERN Stack | React</p>
+
+  <div class="links">
+    <a href="mailto:shy9kasliwal@gmail.com">📧 Email</a>
+    <a href="tel:+919309470762">📞 +91 9309470762</a>
+    <a href="https://github.com/shyakasliwal" target="_blank">🐙 GitHub</a>
+    <a href="https://www.linkedin.com/in/shyam-kasliwal-964201251/" target="_blank">💼 LinkedIn</a>
+  </div>
+</header>
+
+<!-- ===== ABOUT ===== -->
+<section>
+  <h2>About Me</h2>
+  <p>
+    B.Tech Computer Science student with hands-on experience in building scalable
+    MERN stack applications. Passionate about frontend development, APIs, and
+    performance optimization.
+  </p>
+</section>
+
+<!-- ===== CODING PROFILES ===== -->
+<section>
+  <h2>Coding Profiles</h2>
+
+  <div class="profiles">
+    <a class="profile-card" href="https://leetcode.com/u/Shy3kasliwal" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" />
+      <span>LeetCode</span>
+    </a>
+
+    <a class="profile-card" href="https://www.geeksforgeeks.org/user/shy9kass3k6/" target="_blank">
+      <img src="https://media.geeksforgeeks.org/gfg-gg-logo.svg" />
+      <span>GeeksforGeeks</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section>
+  <h2>Education</h2>
+
+  <div class="card">
+    <h3>Poornima College of Engineering, Jaipur</h3>
+    <p>B.Tech in Computer Science (2022 – 2026)</p>
+    <p><strong>CGPA:</strong> 8.4 / 10</p>
+  </div>
+
+  <div class="card">
+    <h3>Raman Academy Sr. Sec School</h3>
+    <p>Class XII — RBSE Board (2022)</p>
+    <p>75%</p>
+  </div>
+
+  <div class="card">
+    <h3>Sunrise Academy Sr. Sec School</h3>
+    <p>Class X — RBSE Board (2020)</p>
+    <p>89%</p>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section>
+  <h2>Work Experience</h2>
+
+  <div class="card">
+    <h3>Full Stack Developer Intern — PearlThoughts</h3>
+    <p>May 2025 – Jul 2025</p>
+    <ul>
+      <li>Built and deployed MERN stack applications</li>
+      <li>Implemented JWT & bcrypt authentication</li>
+      <li>Created REST APIs using Node.js & MongoDB</li>
+      <li>Optimized queries & API performance</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section>
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>FoodExpress — MERN Stack</h3>
+    <p>Food delivery platform with real-time tracking</p>
+    <a href="https://food-delivery-frontend-s2l9.onrender.com/" target="_blank">Live Project</a>
+  </div>
+
+  <div class="card">
+    <h3>WeatherCast</h3>
+    <p>Real-time weather app using OpenWeather API</p>
+    <a href="https://web-dev-project-one.vercel.app/" target="_blank">Live Project</a>
+  </div>
+
+  <div class="card">
+    <h3>EasyBook</h3>
+    <p>Booking web app using React</p>
+    <a href="https://airglobe.vercel.app/" target="_blank">Live Project</a>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section>
+  <h2>Skills</h2>
+
+  <div class="skills">
+    <span>C</span><span>C++</span><span>Java</span>
+    <span>JavaScript</span><span>HTML</span><span>CSS</span>
+    <span>React</span><span>Node.js</span><span>Express</span>
+    <span>MongoDB</span><span>MySQL</span>
+    <span>Git</span><span>GitHub</span>
+    <span>Socket.io</span>
+  </div>
+</section>
+
+<footer>
+  © 2025 Shyam Kasliwal
+</footer>
+
+<!-- ===== THREE.JS SCRIPT ===== -->
+<script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 300, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+  renderer.setSize(window.innerWidth, 300);
+  document.getElementById("three-bg").appendChild(renderer.domElement);
+
+  const geometry = new THREE.BufferGeometry();
+  const count = 1600;
+  const positions = new Float32Array(count * 3);
+
+  for (let i = 0; i < count * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 20;
+  }
+
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+  const material = new THREE.PointsMaterial({
+    color: 0x38bdf8,
+    size: 0.05
+  });
+
+  const points = new THREE.Points(geometry, material);
+  scene.add(points);
+
+  camera.position.z = 5;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    points.rotation.x += 0.0005;
+    points.rotation.y += 0.0007;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
